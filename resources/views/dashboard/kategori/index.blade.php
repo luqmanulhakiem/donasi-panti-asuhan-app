@@ -7,8 +7,8 @@
         <div class="card">
           <div class="card-body">
             <div class="row justify-content-between ml-2 mr-2">
-                <h4 class="card-title">Data Anak Asuh</h4>
-                <a href="{{route('db.anak-asuh.create')}}" class="btn btn-sm btn-primary">Tambah</a>
+                <h4 class="card-title">Data Kategori</h4>
+                <a href="{{route('db.kategori.create')}}" class="btn btn-sm btn-primary">Tambah</a>
             </div>
             <div class="table-responsive pt-3">
               <table class="table table-bordered">
@@ -18,19 +18,7 @@
                       #
                     </th>
                     <th>
-                      Nama Lengkap
-                    </th>
-                    <th>
-                      Kelas
-                    </th>
-                    <th>
-                      Jenjang Pendidikan
-                    </th>
-                    <th>
-                      Jenis Kelamin
-                    </th>
-                    <th>
-                      Umur
+                      Nama Kategori
                     </th>
                     <th class="text-center">
                       Aksi
@@ -43,22 +31,18 @@
                         @foreach ($data as $item)
                             <tr>
                                 <td>{{$num++}}</td>
-                                <td>{{$item->nama}}</td>
-                                <td>{{$item->kelas}}</td>
-                                <td>{{$item->jenjang}}</td>
-                                <td>{{$item->jenis_kelamin == 'L' ? 'Laki-Laki' : 'Perempuan'}}</td>
-                                <td>{{$item->umur}}</td>
+                                <td>{{$item->name}}</td>
                                 <td class="text-center">
                                     <div class="btn-group">
-                                        <a href="{{route('db.anak-asuh.edit', ['id' => $item->id])}}" class="btn btn-sm btn-warning">Edit</a>
-                                        <a href="{{route('db.anak-asuh.destroy', ['id' => $item->id])}}" class="btn btn-sm btn-danger">Hapus</a>
+                                        <a href="{{route('db.kategori.edit', ['id' => $item->id])}}" class="btn btn-sm btn-warning">Edit</a>
+                                        <a href="{{route('db.kategori.destroy', ['id' => $item->id])}}" class="btn btn-sm btn-danger">Hapus</a>
                                     </div>
                                 </td>
                             </tr>
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="7" class="text-center">Belum ada data</td>
+                            <td colspan="3" class="text-center">Belum ada data</td>
                         </tr>
                     @endif
                 </tbody>
