@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('donaturs', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->string('alamat')->nullable();
+            $table->string('hp');
+            $table->string('email');
+            $table->string('ket')->nullable();
             $table->timestamps();
         });
     }

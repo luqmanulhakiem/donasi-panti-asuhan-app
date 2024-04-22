@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('donasis', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_donatur')->constrained('donaturs')->cascadeOnUpdate()->cascadeOnDelete()->nullable();
+            $table->integer('nominal');
             $table->timestamps();
         });
     }

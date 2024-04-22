@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('konfigurasis', function (Blueprint $table) {
             $table->id();
+            $table->string('alamat');
+            $table->string('email');
+            $table->string('whatsapp');
             $table->timestamps();
         });
     }

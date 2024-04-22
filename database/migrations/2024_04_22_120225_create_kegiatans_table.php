@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('kegiatans', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_kategori')->constrained('kategori_postingans')->cascadeOnUpdate()->cascadeOnDelete()->nullable();
+            $table->string('foto');
+            $table->string('judul');
+            $table->string('desk');
+            $table->string('tanggal');
             $table->timestamps();
         });
     }

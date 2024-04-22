@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('anak_asuhs', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->integer('kelas');
+            $table->string('jenjang');
+            $table->enum('jenis_kelamin', ['L', 'P']);
+            $table->integer('umur');
             $table->timestamps();
         });
     }
