@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Profile View
 Route::get('/', function () {
     return view('halaman.index');
 });
@@ -23,3 +24,8 @@ Route::get('/pengurus', function () {
 Route::get('/galeri', function () {
     return view('halaman.galeri');
 })->name('galeri');
+
+// Dashboard VIew
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->name('dashboard');
