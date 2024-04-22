@@ -26,6 +26,13 @@ Route::get('/galeri', function () {
 })->name('galeri');
 
 // Dashboard VIew
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-})->name('dashboard');
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard.index');
+    })->name('dashboard');
+    
+});
