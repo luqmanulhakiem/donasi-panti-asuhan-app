@@ -68,7 +68,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('db.pengurus')}}">
           <i class="typcn typcn-user menu-icon"></i>
           <span class="menu-title">Pengurus</span>
         </a>

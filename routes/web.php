@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnakAsuhController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KonfigurasiController;
+use App\Http\Controllers\PengurusController;
 use Illuminate\Support\Facades\Route;
 
 // Profile View
@@ -53,6 +54,14 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
            Route::get('/anak-asuh/edit/{id}', 'edit')->name('db.anak-asuh.edit');
            Route::post('/anak-asuh/update/{id}', 'update')->name('db.anak-asuh.update');
            Route::get('/anak-asuh/destroy/{id}', 'destroy')->name('db.anak-asuh.destroy');
+        });
+        Route::controller(PengurusController::class)->group(function () {
+           Route::get('/pengurus', 'index')->name('db.pengurus');
+           Route::get('/pengurus/create', 'create')->name('db.pengurus.create');
+           Route::post('/pengurus/store', 'store')->name('db.pengurus.store');
+           Route::get('/pengurus-edit/{id}', 'edit')->name('db.pengurus.edit');
+           Route::post('/pengurus/update/{id}', 'update')->name('db.pengurus.update');
+           Route::get('/pengurus/destroy/{id}', 'destroy')->name('db.pengurus.destroy');
         });
     });
 
