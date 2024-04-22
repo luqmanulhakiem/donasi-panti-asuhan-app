@@ -49,7 +49,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('db.galeri')}}">
           <i class="typcn typcn-image menu-icon"></i>
           <span class="menu-title">Galeri</span>
         </a>

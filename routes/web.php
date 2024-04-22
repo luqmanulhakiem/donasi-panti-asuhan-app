@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnakAsuhController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\KonfigurasiController;
 use App\Http\Controllers\PengurusController;
 use Illuminate\Support\Facades\Route;
@@ -59,9 +60,17 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
            Route::get('/pengurus', 'index')->name('db.pengurus');
            Route::get('/pengurus/create', 'create')->name('db.pengurus.create');
            Route::post('/pengurus/store', 'store')->name('db.pengurus.store');
-           Route::get('/pengurus-edit/{id}', 'edit')->name('db.pengurus.edit');
+           Route::get('/pengurus/edit/{id}', 'edit')->name('db.pengurus.edit');
            Route::post('/pengurus/update/{id}', 'update')->name('db.pengurus.update');
            Route::get('/pengurus/destroy/{id}', 'destroy')->name('db.pengurus.destroy');
+        });
+        Route::controller(GalleryController::class)->group(function () {
+           Route::get('/galeri', 'index')->name('db.galeri');
+           Route::get('/galeri/create', 'create')->name('db.galeri.create');
+           Route::post('/galeri/store', 'store')->name('db.galeri.store');
+           Route::get('/galeri/edit/{id}', 'edit')->name('db.galeri.edit');
+           Route::post('/galeri/update/{id}', 'update')->name('db.galeri.update');
+           Route::get('/galeri/destroy/{id}', 'destroy')->name('db.galeri.destroy');
         });
     });
 
