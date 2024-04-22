@@ -16,8 +16,8 @@ return new class extends Migration
             $table->bigInteger('id_kategori')->constrained('kategori_postingans')->cascadeOnUpdate()->cascadeOnDelete()->nullable();
             $table->string('foto');
             $table->string('judul');
-            $table->string('desk');
-            $table->string('tanggal');
+            $table->text('desk');
+            $table->date('tanggal');
             $table->timestamps();
         });
     }

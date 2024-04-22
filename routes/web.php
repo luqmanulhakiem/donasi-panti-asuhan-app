@@ -4,6 +4,7 @@ use App\Http\Controllers\AnakAsuhController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\KategoriPostinganController;
+use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\KonfigurasiController;
 use App\Http\Controllers\PengurusController;
 use Illuminate\Support\Facades\Route;
@@ -80,6 +81,14 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
            Route::get('/kategori/edit/{id}', 'edit')->name('db.kategori.edit');
            Route::post('/kategori/update/{id}', 'update')->name('db.kategori.update');
            Route::get('/kategori/destroy/{id}', 'destroy')->name('db.kategori.destroy');
+        });
+        Route::controller(KegiatanController::class)->group(function () {
+           Route::get('/postingan', 'index')->name('db.postingan');
+           Route::get('/postingan/create', 'create')->name('db.postingan.create');
+           Route::post('/postingan/store', 'store')->name('db.postingan.store');
+           Route::get('/postingan/edit/{id}', 'edit')->name('db.postingan.edit');
+           Route::post('/postingan/update/{id}', 'update')->name('db.postingan.update');
+           Route::get('/postingan/destroy/{id}', 'destroy')->name('db.postingan.destroy');
         });
     });
 
