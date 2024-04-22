@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnakAsuhController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KonfigurasiController;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,17 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
     Route::controller(KonfigurasiController::class)->group(function () {
        Route::get('/konfigurasi', 'index')->name('konfigurasi');
        Route::post('/konfigurasi.update', 'update')->name('konfigurasi.update');
+    });
+    Route::group(['prefix' => 'data'], function () {
+        // Data Anak Asuh
+        Route::controller(AnakAsuhController::class)->group(function () {
+           Route::get('/anak-asuh', 'index')->name('db.anak-asuh');
+           Route::get('/anak-asuh/create', 'create')->name('db.anak-asuh.create');
+           Route::post('/anak-asuh/store', 'store')->name('db.anak-asuh.store');
+           Route::get('/anak-asuh/edit/{id}', 'edit')->name('db.anak-asuh.edit');
+           Route::post('/anak-asuh/update/{id}', 'update')->name('db.anak-asuh.update');
+           Route::get('/anak-asuh/destroy/{id}', 'destroy')->name('db.anak-asuh.destroy');
+        });
     });
 
 });

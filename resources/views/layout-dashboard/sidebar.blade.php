@@ -62,7 +62,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('db.anak-asuh')}}">
           <i class="typcn typcn-group menu-icon"></i>
           <span class="menu-title">Anak Asuh</span>
         </a>
