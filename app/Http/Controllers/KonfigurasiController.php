@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\KonfigurasiUpdateRequest;
 use App\Models\Konfigurasi;
 use Illuminate\Http\Request;
 
@@ -12,54 +13,24 @@ class KonfigurasiController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $data = Konfigurasi::first();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Konfigurasi $konfigurasi)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Konfigurasi $konfigurasi)
-    {
-        //
+        return view('dashboard.konfigurasi.index', compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Konfigurasi $konfigurasi)
+    public function update(KonfigurasiUpdateRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        if ($data) {
+            $find = Konfigurasi::first();
+            $find->update($data);
+
+            return redirect()->route('konfigurasi');
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Konfigurasi $konfigurasi)
-    {
-        //
-    }
 }
