@@ -21,6 +21,7 @@
                 <label for="exampleInputUsername1">Nama Kategori</label>
                 <input type="text" name="name" class="form-control" placeholder="Nama Kategori" value="{{$data->name}}" required>
               </div>
+              {{--  --}}
 
               <button type="submit" class="btn btn-primary mr-2">Simpan</button>
             </form>
