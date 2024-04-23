@@ -39,7 +39,7 @@
                    <nav class="main-menu">
                       <ul class="menu-area-main">
                          <li class="active"> <a href="/">Home</a> </li>
-                         <li> <a href="product.html">Donasi</a> </li>
+                         <li> <a href="{{route('donasi')}}">Donasi</a> </li>
                          <li class=""> <a href="{{route('kegiatan')}}">Kegiatan</a> </li>
                         <li class=" dropdown d-none d-md-inline-block">
                             <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

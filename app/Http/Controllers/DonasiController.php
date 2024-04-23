@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DonasiRequest;
 use App\Models\Donasi;
+use App\Models\Donatur;
 use Illuminate\Http\Request;
 
 class DonasiController extends Controller
@@ -26,9 +28,33 @@ class DonasiController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(DonasiRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $find = Donatur::where('email', 'LIKE', '%' . $data['email'] . '%')->first();
+
+        if ($find) {
+            Donasi::create([
+                'id_donatur' => $find->id,
+                'nominal' => $data['nominal'],
+            ]);
+        }else{
+            $create = Donatur::create([
+                'nama' => $data['nama'],
+                'alamat' => $data['alamat'],
+                'hp' => $data['hp'],
+                'email' => $data['email'],
+                'ket' => $data['ket'],
+            ]);
+
+            Donasi::create([
+                'id_donatur' => $create->id,
+                'nominal' => $data['nominal'],
+            ]);
+        }
+
+        return redirect()->route('donasi');
     }
 
     /**

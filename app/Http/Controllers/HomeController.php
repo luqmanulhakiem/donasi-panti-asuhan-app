@@ -48,4 +48,8 @@ class HomeController extends Controller
         $profile = Konfigurasi::first();
         return view('halaman.visiMisi', compact( 'profile'));
     }
+    public function donasi(){
+        $profile = Konfigurasi::first();
+        return view('halaman.donasi', compact( 'profile'));
+    }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnakAsuhController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DonasiController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriPostinganController;
@@ -19,7 +20,10 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/galeri', 'galeri')->name('galeri');
     Route::get('/sejarah', 'sejarah')->name('sejarah');
     Route::get('/visi-misi', 'visiMisi')->name('visi-misi');
+    Route::get('/donasi', 'donasi')->name('donasi');
  });
+
+ Route::post('donasi-post', [DonasiController::class, 'store'])->name('donasi.post');
 
 
 // Dashboard VIew
