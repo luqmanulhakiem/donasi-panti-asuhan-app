@@ -29,20 +29,22 @@
                   </tr>
                </thead>
                <tbody>
-                  <tr>
-                     <td>1</td>
-                     <td>Kucing</td>
-                     <td>1 SD</td>
-                     <td>Laki Laki</td>
-                     <td>16</td>
-                  </tr>
-                  <tr>
-                     <td>2</td>
-                     <td>Rusa</td>
-                     <td>1 SMA</td>
-                     <td>Perempuan</td>
-                     <td>20</td>
-                  </tr>
+                  @if (count($data) > 0)
+                  <?php $num = 1 ?>
+                  @foreach ($data as $item)
+                     <tr>
+                        <td>{{$num++}}</td>
+                        <td>{{$item->nama}}</td>
+                        <td>{{$item->kelas}} {{$item->jenjang}}</td>
+                        <td>{{$item->jenis_kelamin}}</td>
+                        <td>{{$item->umur}}</td>
+                     </tr>
+                  @endforeach
+                  @else
+                     <tr>
+                        <td colspan="5" class="text-center">Belum ada data</td>
+                     </tr>
+                  @endif
                </tbody>
             </table>
           </div> 

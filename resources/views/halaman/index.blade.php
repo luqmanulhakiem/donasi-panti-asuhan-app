@@ -58,41 +58,33 @@
    <div class="container">
       <div class="p-4 row text-start justify-content-between mb-5">
          <h3>Kegiatan Terbaru</h3>
-         <a href="" class="btn btn-sm btn-primary">Lihat Semua Kegiatan</a>
+         <a href="{{route('kegiatan')}}" class="btn btn-sm btn-primary">Lihat Semua Kegiatan</a>
       </div>
        <div class="row">
-           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 margin">
-               <div class="news-box">
-                   <figure><img src="{{asset('assets/images/1.jpg')}}" alt="img" /></figure>
-                   <h3>Live With Music</h3>
-                   <span> March 20</span><span>Kategori</span>
-                   <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
+         @if (count($data) > 0)
+            @foreach ($data as $item)
+               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 margin">
+                  <div class="news-box p-2">
+                     <figure><img src="{{asset('storage/postingan/' . $item->foto)}}" alt="img" /></figure>
+                     <h3>{{$item->judul}}</h3>
+                     <span> {{$item->tanggal}}</span>
+                     @if ($item->kategori != null)
+                     <span>{{$item->kategori->name != null ? $item->kategori->name : 'unkown'}}</span>
+                     @else
+                     <span>uknown</span>
+                     @endif
+                     <p style="
+                     overflow: hidden;
+                     max-height: 100px; /* Adjust the maximum height to your desired value */
+                     transition: max-height 0.3s ease;
+                     ">{{$item->desk}}</p>
+                     <a href="" class="btn btn-sm btn-warning">Baca Selengkapnya</a>
+                  </div>
                </div>
-           </div>
-           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 margin">
-               <div class="news-box">
-                   <figure><img src="{{asset('assets/images/2.jpg')}}" alt="img" /></figure>
-                   <h3>Best Music</h3>
-                   <span> March 20</span><span>Kategori</span>
-                   <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
-               </div>
-           </div>
-           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 margin">
-               <div class="news-box">
-                   <figure><img src="{{asset('assets/images/3.jpg')}}" alt="img" /></figure>
-                   <h3>Live With Music</h3>
-                   <span> March 20</span><span>Kategori</span>
-                   <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
-               </div>
-           </div>
-           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
-               <div class="news-box">
-                   <figure><img src="{{asset('assets/images/3.jpg')}}" alt="img" /></figure>
-                   <h3>Live With Music</h3>
-                   <span> March 20</span><span>Kategori</span>
-                   <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
-               </div>
-           </div>
+            @endforeach
+         @else
+            <h3 class="text-center">Belum ada kegiatan</h3>
+         @endif
        </div>
    </div>
 </div>

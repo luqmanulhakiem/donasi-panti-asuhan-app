@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnakAsuhController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriPostinganController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\KonfigurasiController;
@@ -10,27 +11,23 @@ use App\Http\Controllers\PengurusController;
 use Illuminate\Support\Facades\Route;
 
 // Profile View
-Route::get('/', function () {
-    return view('halaman.index');
-});
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('halaman.index');
+    Route::get('/anak-asuh', 'anakasuh')->name('anak-asuh');
+    Route::get('/kegiatan', 'kegiatan')->name('kegiatan');
+    Route::get('/pengurus', 'pengurus')->name('pengurus');
+    Route::get('/galeri', 'galeri')->name('galeri');
+ });
 Route::get('/sejarah', function () {
     return view('halaman.tentang');
 })->name('sejarah');
 Route::get('/visi-misi', function () {
     return view('halaman.visiMisi');
 })->name('visi-misi');
-Route::get('/anak-asuh', function () {
-    return view('halaman.anakasuh');
-})->name('anak-asuh');
-Route::get('/kegiatan', function () {
-    return view('halaman.kegiatan');
-})->name('kegiatan');
-Route::get('/pengurus', function () {
-    return view('halaman.pengurus');
-})->name('pengurus');
-Route::get('/galeri', function () {
-    return view('halaman.galeri');
-})->name('galeri');
+// Sisa Ini
+// Route::get('/galeri', function () {
+//     return view('halaman.galeri');
+// })->name('galeri');
 
 // Dashboard VIew
 Route::get('/login', function () {

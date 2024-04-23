@@ -17,9 +17,15 @@
 <div class="Lastestnews blog">
     <div class="container">
         <div class="row">
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 margin">
-                <img class="img-thumbnail img-responsive img-rounded" src="{{asset('assets/images/1.jpg')}}" alt="img" />
-            </div>
+            @if (count($data) > 0)
+                @foreach ($data as $item)
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 margin">
+                        <img class="img-thumbnail img-rounded" src="{{asset('storage/galeri/' . $item->foto)}}" alt="img" />
+                    </div>
+                @endforeach
+            @else
+            <h3>Belum ada data</h3>
+            @endif
         </div>
     </div>
 </div>
