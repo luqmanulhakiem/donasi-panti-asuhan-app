@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>CelestialUI Admin</title>
+    <title>Dashboard | Panti Asuhan Aisyiyah</title>
     <!-- base:css -->
     <link rel="stylesheet" href="{{asset('dassets/vendors/typicons.font/font/typicons.css')}}">
     <link rel="stylesheet" href="{{asset('dassets/vendors/css/vendor.bundle.base.css')}}">

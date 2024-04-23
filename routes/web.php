@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnakAsuhController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonasiController;
 use App\Http\Controllers\DonaturController;
 use App\Http\Controllers\GalleryController;
@@ -34,9 +35,11 @@ Route::get('/login', function () {
 Route::post('/login-try', [AuthController::class, 'login'])->name('login.try');
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
-    Route::get('/admin', function () {
-        return view('dashboard.index');
-    })->name('dashboard');
+   //  Route::get('/admin', function () {
+   //      return view('dashboard.index');
+   //  })->name('dashboard');
+   Route::get('/admin', [DashboardController::class, 'index'])->name('dashboard');
+
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     // Konfigurasi
     Route::controller(KonfigurasiController::class)->group(function () {

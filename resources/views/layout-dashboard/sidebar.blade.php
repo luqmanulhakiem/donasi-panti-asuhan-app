@@ -27,12 +27,12 @@
             </div>
           </div>
         </div> --}}
-        <p class="sidebar-menu-title">Dash menu</p>
+        <p class="sidebar-menu-title">Dashboard</p>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{route('dashboard')}}">
           <i class="typcn typcn-device-desktop menu-icon"></i>
-          <span class="menu-title">Dashboard <span class="badge badge-primary ml-3">New</span></span>
+          <span class="menu-title">Dashboard</span>
         </a>
       </li>
       <li class="nav-item">

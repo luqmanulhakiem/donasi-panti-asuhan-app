@@ -16,7 +16,7 @@ class Donasi extends Model
         'tanggal',
     ];
 
-    public function kegiatan(): BelongsTo
+    public function donatur(): BelongsTo
     {
         return $this->belongsTo(Donatur::class, 'id_donatur', 'id');
     }

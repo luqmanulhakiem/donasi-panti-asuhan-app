@@ -25,11 +25,14 @@
           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
              <div class="full">
                 <div class="center-desk">
-                    <div class="justify-content-start">
-                        <h4 class="mt-3 pb-0" style="margin-bottom: -10px !important">Panti Asuhan</h4>
-                        <h1 class="mt-0 p-0">AISYIYAH</h1>
-                    </div>
-                   {{-- <div class="logo"> <a href="index.html"><img src="{{asset('assets/images/logo.jpg')}}" alt="logo"/></a> </div> --}}
+                  <div class="d-flex">
+                     <div class="logo"><a href="#"><img style="width: 80px; height: 80px;" src="{{asset('dassets/images/favicon.png')}}" alt="logo"/></a> </div>
+                      <div class="justify-content-start">
+                          <h4 class="mt-3 pb-0" style="margin-bottom: -10px !important">Panti Asuhan</h4>
+                          <h1 class="mt-0 p-0">AISYIYAH</h1>
+                      </div>
+
+                  </div>
                 </div>
              </div>
           </div>
