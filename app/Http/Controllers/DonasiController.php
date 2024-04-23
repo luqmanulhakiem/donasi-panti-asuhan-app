@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\DonasiRequest;
 use App\Models\Donasi;
 use App\Models\Donatur;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DonasiController extends Controller
@@ -33,11 +34,16 @@ class DonasiController extends Controller
         $data = $request->validated();
 
         $find = Donatur::where('email', 'LIKE', '%' . $data['email'] . '%')->first();
+        $data['tanggal'] = Carbon::now()->format('Y-m-d');
+
+        // return response()->json($data['tanggal']);
 
         if ($find) {
             Donasi::create([
                 'id_donatur' => $find->id,
                 'nominal' => $data['nominal'],
+                'ket' => $data['ket'],
+                'tanggal' => $data['tanggal'],
             ]);
         }else{
             $create = Donatur::create([
@@ -45,12 +51,13 @@ class DonasiController extends Controller
                 'alamat' => $data['alamat'],
                 'hp' => $data['hp'],
                 'email' => $data['email'],
-                'ket' => $data['ket'],
             ]);
-
+            
             Donasi::create([
                 'id_donatur' => $create->id,
                 'nominal' => $data['nominal'],
+                'ket' => $data['ket'],
+                'tanggal' => $data['tanggal'],
             ]);
         }
 

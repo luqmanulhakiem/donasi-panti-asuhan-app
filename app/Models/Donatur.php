@@ -14,7 +14,6 @@ class Donatur extends Model
         'alamat',
         'hp',
         'email',
-        'ket',
     ];
 
     public function donasi(): HasMany

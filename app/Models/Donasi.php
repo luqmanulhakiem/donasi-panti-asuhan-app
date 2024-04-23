@@ -12,6 +12,8 @@ class Donasi extends Model
     protected $fillable = [
         'id_donatur',
         'nominal',
+        'ket',
+        'tanggal',
     ];
 
     public function kegiatan(): BelongsTo

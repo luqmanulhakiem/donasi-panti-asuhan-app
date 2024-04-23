@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('alamat')->nullable();
             $table->string('hp');
             $table->string('email');
-            $table->string('ket')->nullable();
             $table->timestamps();
         });
     }

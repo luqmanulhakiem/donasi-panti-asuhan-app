@@ -28,6 +28,7 @@ class DonasiRequest extends FormRequest
             'hp' => 'required',
             'email' => 'required|email',
             'ket' => 'nullable',
+            'tanggal' => 'nullable',
         ];
     }
 }

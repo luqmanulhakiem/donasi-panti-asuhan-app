@@ -12,54 +12,18 @@ class DonaturController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+        $data = Donatur::paginate(20);
+        
+        return view('dashboard.donatur.index', compact('data'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Donatur $donatur)
+    public function show(string $id)
     {
-        //
-    }
+        $data = Donatur::with('donasi')->where('id', $id)->first();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Donatur $donatur)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Donatur $donatur)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Donatur $donatur)
-    {
-        //
+        return view('dashboard.donatur.show', compact('data'));
     }
 }

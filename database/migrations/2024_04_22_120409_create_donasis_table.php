@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('id_donatur')->constrained('donaturs')->cascadeOnUpdate()->cascadeOnDelete()->nullable();
             $table->integer('nominal');
+            $table->string('ket')->nullable();
+            $table->date('tanggal');
             $table->timestamps();
         });
     }

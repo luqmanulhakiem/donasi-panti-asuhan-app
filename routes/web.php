@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnakAsuhController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DonasiController;
+use App\Http\Controllers\DonaturController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriPostinganController;
@@ -51,6 +52,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function () {
            Route::get('/anak-asuh/edit/{id}', 'edit')->name('db.anak-asuh.edit');
            Route::post('/anak-asuh/update/{id}', 'update')->name('db.anak-asuh.update');
            Route::get('/anak-asuh/destroy/{id}', 'destroy')->name('db.anak-asuh.destroy');
+        });
+        Route::controller(DonaturController::class)->group(function () {
+           Route::get('/donatur', 'index')->name('db.donatur');
+           Route::get('/donatur/show/{id}', 'show')->name('db.donatur.show');
         });
         Route::controller(PengurusController::class)->group(function () {
            Route::get('/pengurus', 'index')->name('db.pengurus');

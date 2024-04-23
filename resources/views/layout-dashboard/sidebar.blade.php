@@ -55,7 +55,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('db.donatur')}}">
           <i class="typcn typcn-user-outline menu-icon"></i>
           <span class="menu-title">Donatur</span>
         </a>
