@@ -7,16 +7,14 @@
                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                   <div class="top-box">
                    <ul class="sociel_link">
-                    <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
-                    <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
-                    <li> <a href="#"><i class="fa fa-linkedin"></i></a></li>
-                </ul>
-               </div>
+                     <li><i class="fa fa-envelope"></i> {{$profile->email}}</li>
+                     <li class="ml-2"><i class="fa fa-whatsapp"></i> {{$profile->whatsapp}}</li>
+                   </ul>
+                  </div>
              </div>
              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                   <div class="top-box">
-                   <p>Jln. apa saja </p>
+                   <p><i class="fa fa-map-marker"></i> {{$profile->alamat}}</p>
                </div>
              </div>
           </div>

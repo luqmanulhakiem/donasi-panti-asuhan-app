@@ -17,17 +17,10 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/kegiatan', 'kegiatan')->name('kegiatan');
     Route::get('/pengurus', 'pengurus')->name('pengurus');
     Route::get('/galeri', 'galeri')->name('galeri');
+    Route::get('/sejarah', 'sejarah')->name('sejarah');
+    Route::get('/visi-misi', 'visiMisi')->name('visi-misi');
  });
-Route::get('/sejarah', function () {
-    return view('halaman.tentang');
-})->name('sejarah');
-Route::get('/visi-misi', function () {
-    return view('halaman.visiMisi');
-})->name('visi-misi');
-// Sisa Ini
-// Route::get('/galeri', function () {
-//     return view('halaman.galeri');
-// })->name('galeri');
+
 
 // Dashboard VIew
 Route::get('/login', function () {
