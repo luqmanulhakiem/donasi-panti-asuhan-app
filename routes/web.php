@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriPostinganController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\KonfigurasiController;
+use App\Http\Controllers\MidtransController;
 use App\Http\Controllers\PengurusController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,8 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/visi-misi', 'visiMisi')->name('visi-misi');
     Route::get('/donasi', 'donasi')->name('donasi');
  });
+
+ Route::get('/donasi/payment', [MidtransController::class, 'buatTransaksi'])->name('donasi.payment');
 
  Route::post('donasi-post', [DonasiController::class, 'store'])->name('donasi.post');
 
