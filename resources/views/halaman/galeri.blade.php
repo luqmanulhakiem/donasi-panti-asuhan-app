@@ -21,6 +21,8 @@
                 @foreach ($data as $item)
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 margin">
                         <img class="img-thumbnail img-rounded" src="{{asset('storage/galeri/' . $item->foto)}}" alt="img" />
+                        {{-- tambahkan ini --}}
+                        <p class="text-center">{{$item->desk}}</p>
                     </div>
                 @endforeach
             @else
