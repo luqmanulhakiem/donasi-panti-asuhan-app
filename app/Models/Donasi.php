@@ -14,6 +14,8 @@ class Donasi extends Model
         'nominal',
         'ket',
         'tanggal',
+        'status',
+        'snap_token',
     ];
 
     public function donatur(): BelongsTo

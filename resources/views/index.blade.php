@@ -45,6 +45,7 @@
       <!--  footer --> 
       @include('layout.footer')
       <!-- end footer -->
+      @yield('scripts-midtrans')
       <!-- Javascript files--> 
       <script src="{{asset('assets/js/jquery.min.js')}}"></script> 
       <script src="{{asset('assets/js/popper.min.js')}}"></script> 
@@ -55,6 +56,7 @@
       <script src="{{asset('assets/js/jquery.mCustomScrollbar.concat.min.js')}}"></script> 
       <script src="{{asset('assets/js/custom.js')}}"></script> 
       <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+      
       <script>
          $(document).ready(function(){
          $(".fancybox").fancybox({

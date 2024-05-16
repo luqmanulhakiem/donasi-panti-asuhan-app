@@ -39,7 +39,7 @@ class DonasiController extends Controller
         // return response()->json($data['tanggal']);
 
         if ($find) {
-            Donasi::create([
+            $donasi = Donasi::create([
                 'id_donatur' => $find->id,
                 'nominal' => $data['nominal'],
                 'ket' => $data['ket'],
@@ -53,7 +53,7 @@ class DonasiController extends Controller
                 'email' => $data['email'],
             ]);
             
-            Donasi::create([
+            $donasi = Donasi::create([
                 'id_donatur' => $create->id,
                 'nominal' => $data['nominal'],
                 'ket' => $data['ket'],
@@ -61,7 +61,36 @@ class DonasiController extends Controller
             ]);
         }
 
-        return redirect()->route('donasi');
+        // Set your Merchant Server Key
+        \Midtrans\Config::$serverKey = config('midtrans.serverKey');
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        \Midtrans\Config::$isProduction = false;
+        // Set sanitization on (default)
+        \Midtrans\Config::$isSanitized = true;
+        // Set 3DS transaction for credit card to true
+        \Midtrans\Config::$is3ds = true;
+
+        // SNAP
+        $params = array(
+            'transaction_details' => array(
+                'order_id' => rand(),
+                'gross_amount' => $data['nominal'],
+            )
+        );
+        
+        try {
+            $snapToken = \Midtrans\Snap::getSnapToken($params);
+            $donasi->update([
+                'snap_token' => $snapToken
+            ]);
+        } catch (\Exception $e) {
+            // Log the error or handle it as needed
+            error_log($e->getMessage());
+            // You can also return an error response if needed
+            return response()->json(['error' => 'Failed to get snap token. Please check your server key and environment settings.']);
+        }
+
+        return redirect()->route('donasi.bayar', $donasi->id);
     }
 
     /**

@@ -17,6 +17,8 @@ return new class extends Migration
             $table->integer('nominal');
             $table->string('ket')->nullable();
             $table->date('tanggal');
+            $table->enum('status', ['pending', 'success'])->default('pending');
+            $table->string('snap_token')->nullable();
             $table->timestamps();
         });
     }

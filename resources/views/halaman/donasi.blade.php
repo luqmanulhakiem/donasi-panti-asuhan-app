@@ -18,8 +18,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                {{-- <form action="{{route('donasi.post')}}" method="POST"> --}}
-                <form action="{{route('donasi.payment')}}" method="GET">
+                <form action="{{route('donasi.post')}}" method="POST">
+                {{-- <form action="{{route('donasi.payment')}}" method="GET"> --}}
                     
                     @csrf
                     @if ($errors->any())

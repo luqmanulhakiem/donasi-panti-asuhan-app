@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AnakAsuh;
+use App\Models\Donasi;
 use App\Models\Gallery;
 use App\Models\Kegiatan;
 use App\Models\Konfigurasi;
@@ -22,6 +23,12 @@ class HomeController extends Controller
         $data = Kegiatan::with('kategori')->latest()->paginate(9);
         
         return view('halaman.kegiatan', compact('data', 'profile'));
+    }
+    public function detailKegiatan(string $id) {
+        $profile = Konfigurasi::first();
+
+        $item = Kegiatan::where('id', $id)->first();
+        return view('halaman.kegiatan-detail', compact('item', 'profile'));
     }
     public function anakasuh() {
         $profile = Konfigurasi::first();
@@ -51,5 +58,19 @@ class HomeController extends Controller
     public function donasi(){
         $profile = Konfigurasi::first();
         return view('halaman.donasi', compact( 'profile'));
+    }
+    public function donasiBayar(string $id){
+        $profile = Konfigurasi::first();
+        $transaksi = Donasi::where('id', $id)->first();
+        return view('halaman.bayar', compact( 'profile', 'transaksi'));
+    }
+    public function donasiSukses(string $id){
+        $profile = Konfigurasi::first();
+        $transaksi = Donasi::where('id', $id)->first();
+
+        $transaksi->update([
+            'status' => 'success'
+        ]);
+        return view('halaman.bayar-sukses', compact( 'profile', 'transaksi'));
     }
 }

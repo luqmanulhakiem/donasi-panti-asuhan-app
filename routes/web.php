@@ -11,7 +11,11 @@ use App\Http\Controllers\KategoriPostinganController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\KonfigurasiController;
 use App\Http\Controllers\MidtransController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PengurusController;
+use App\Models\Donasi;
+use App\Models\Donatur;
+use App\Models\Konfigurasi;
 use Illuminate\Support\Facades\Route;
 
 // Profile View
@@ -19,12 +23,24 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('halaman.index');
     Route::get('/anak-asuh', 'anakasuh')->name('anak-asuh');
     Route::get('/kegiatan', 'kegiatan')->name('kegiatan');
+    Route::get('/kegiatan/{id}', 'detailKegiatan')->name('detail-kegiatan');
     Route::get('/pengurus', 'pengurus')->name('pengurus');
     Route::get('/galeri', 'galeri')->name('galeri');
     Route::get('/sejarah', 'sejarah')->name('sejarah');
     Route::get('/visi-misi', 'visiMisi')->name('visi-misi');
     Route::get('/donasi', 'donasi')->name('donasi');
+    Route::get('/donasi-bayar/{id}', 'donasiBayar')->name('donasi.bayar');
+    Route::get('/donasi-sukses/{id}', 'donasiSukses')->name('donasi.sukses');
  });
+
+//  Route::get('donasi-cetak', function(){
+//    $konfig = Konfigurasi::first();
+//    $donasi = Donasi::where('id', 8)->first();
+//    $donatur = Donatur::where('id', $donasi->id_donatur)->first();
+//    return view('pdf.donasi', compact('konfig', 'donasi', 'donatur'));
+//  });
+Route::get('donasi-cetak/{id}', [PdfController::class, 'index'])->name('cetak');
+
 
  Route::get('/donasi/payment', [MidtransController::class, 'buatTransaksi'])->name('donasi.payment');
 

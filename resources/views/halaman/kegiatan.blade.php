@@ -34,7 +34,7 @@
                             max-height: 200px; /* Adjust the maximum height to your desired value */
                             transition: max-height 0.3s ease;
                             ">{{$item->desk}}</p>
-                            <a href="" class="btn btn-sm btn-warning">Baca Selengkapnya</a>
+                            <a href="{{route('detail-kegiatan', ['id' => $item->id])}}" class="btn btn-sm btn-warning">Baca Selengkapnya</a>
                         </div>
                     </div>
                 @endforeach
